@@ -52,8 +52,9 @@ class Validators {
     if (kcal > 5000) return 'Max 5000 kcal per meal';
     final fromMacros = p * 4 + c * 4 + f * 9;
     final tolerance = (kcal * 0.25).clamp(60, 1000);
-    if ((fromMacros - kcal).abs() > tolerance)
+    if ((fromMacros - kcal).abs() > tolerance) {
       return 'Calories don’t match the macros';
+    }
     return null;
   }
 
@@ -67,8 +68,9 @@ class Validators {
 
   static String? email(String? v) {
     final t = v?.trim() ?? '';
-    if (!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(t))
+    if (!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(t)) {
       return 'Enter a valid email';
+    }
     return null;
   }
 

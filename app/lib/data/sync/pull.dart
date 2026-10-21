@@ -40,8 +40,9 @@ class SyncPull {
       limit: 60,
     )) {
       final remoteW = _workout(doc);
-      if (remoteW == null || pending.contains('workouts/${remoteW.id}'))
+      if (remoteW == null || pending.contains('workouts/${remoteW.id}')) {
         continue;
+      }
       final mine = local.workout(remoteW.id);
       if (mine == null) {
         await local.saveWorkout(remoteW);

@@ -114,8 +114,9 @@ class FirebaseRemote implements Remote {
           final d = DateTime.tryParse(v);
           if (d != null) return MapEntry(k, Timestamp.fromDate(d));
         }
-        if (v is Map)
+        if (v is Map) {
           return MapEntry(k, toFirestoreTypes(Map<String, dynamic>.from(v)));
+        }
         return MapEntry(k, v);
       });
 

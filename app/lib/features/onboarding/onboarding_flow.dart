@@ -167,8 +167,9 @@ class _OnboardingFlowState extends ConsumerState<OnboardingFlow> {
         if (!_returning) return _go(_Step.generating);
         if (await _restore()) return;
         _returning = false; // no saved profile: finish onboarding normally
-        if (mounted)
+        if (mounted) {
           showSnack(context, 'No saved plan yet — let’s set one up.');
+        }
         _go(_Step.goal);
       },
     ),

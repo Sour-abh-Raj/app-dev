@@ -35,8 +35,9 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen> {
     unawaited(_load());
     final a = ref.read(servicesProvider).analytics;
     unawaited(a.log(Events.paywallShown, {'placement': widget.placement}));
-    if (_placement == Placement.trialEnd)
+    if (_placement == Placement.trialEnd) {
       unawaited(a.log(Events.trialEndPaywallShown));
+    }
   }
 
   Future<void> _load() async {
@@ -54,8 +55,9 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen> {
             tiles.firstOrNull;
       });
     } catch (e) {
-      if (mounted)
+      if (mounted) {
         setState(() => _error = 'Couldn’t load plans — check your connection.');
+      }
     }
   }
 
@@ -86,8 +88,9 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen> {
       if (r.entitlement.trial && hasPhotos) {
         await s.analytics.log(Events.trialStartedWithPhotos, {'product': t.id});
       }
-      if (_placement == Placement.winback)
+      if (_placement == Placement.winback) {
         await s.analytics.log(Events.winbackAccepted);
+      }
       if (!mounted) return;
       HapticFeedback.mediumImpact();
       showSnack(
@@ -100,8 +103,9 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen> {
     } on PlatformException catch (e) {
       if (mounted) setState(() => _error = e.message ?? 'Purchase failed');
     } catch (e) {
-      if (mounted)
+      if (mounted) {
         setState(() => _error = 'Purchase failed — you have not been charged.');
+      }
     } finally {
       if (mounted) setState(() => _busy = false);
     }

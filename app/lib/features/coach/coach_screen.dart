@@ -94,8 +94,9 @@ class _CoachScreenState extends ConsumerState<CoachScreen> {
     } finally {
       if (mounted) setState(() => _sending = false);
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (_scroll.hasClients)
+        if (_scroll.hasClients) {
           _scroll.jumpTo(_scroll.position.maxScrollExtent);
+        }
       });
     }
   }

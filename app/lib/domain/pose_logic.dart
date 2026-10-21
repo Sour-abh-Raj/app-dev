@@ -49,10 +49,12 @@ class PoseHints {
     }
     final height = ankles.dy - head.dy;
     if (height < 0.55) return const PoseHint(false, 'Move a little closer');
-    if (hips.dx < 0.38)
+    if (hips.dx < 0.38) {
       return const PoseHint(false, 'Move right to center yourself');
-    if (hips.dx > 0.62)
+    }
+    if (hips.dx > 0.62) {
       return const PoseHint(false, 'Move left to center yourself');
+    }
 
     final ls = lm['l_shoulder'], rs = lm['r_shoulder'];
     if (ls != null && rs != null) {

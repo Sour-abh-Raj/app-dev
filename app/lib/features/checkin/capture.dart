@@ -203,10 +203,11 @@ class _CameraCaptureScreenState extends ConsumerState<CameraCaptureScreen> {
       if (!mounted) return;
       setState(() => _cam = ctrl);
     } catch (e) {
-      if (mounted)
+      if (mounted) {
         setState(
           () => _error = 'Camera unavailable — you can pick a photo instead.',
         );
+      }
     }
   }
 
@@ -239,8 +240,9 @@ class _CameraCaptureScreenState extends ConsumerState<CameraCaptureScreen> {
       cam.sensorOrientation,
     );
     final format = InputImageFormatValue.fromRawValue(img.format.raw as int);
-    if (rotation == null || format == null || img.planes.length != 1)
+    if (rotation == null || format == null || img.planes.length != 1) {
       return null;
+    }
     final plane = img.planes.first;
     return InputImage.fromBytes(
       bytes: plane.bytes,

@@ -98,8 +98,9 @@ class HttpAiApi implements AiApi {
     String? idemKey,
   }) async {
     final token = await idToken();
-    if (token == null)
+    if (token == null) {
       throw const PermanentError('not signed in', code: 'unauthenticated');
+    }
     final http.Response res;
     try {
       res = await _http

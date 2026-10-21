@@ -201,8 +201,9 @@ class DemoAiApi implements AiApi {
   @override
   Future<DateTime> redeemPromo(String code) async {
     await _wait('promo');
-    if (code != 'FORME-TEAM')
+    if (code != 'FORME-TEAM') {
       throw const PermanentError('not_found', code: 'not_found');
+    }
     return DateTime.now().add(const Duration(days: 30));
   }
 }

@@ -80,11 +80,12 @@ class SettingsScreen extends ConsumerWidget {
             onTap: () async {
               final e = await s.purchases.restore();
               ref.read(entitlementProvider.notifier).apply(e);
-              if (context.mounted)
+              if (context.mounted) {
                 showSnack(
                   context,
                   e.pro ? 'Restored' : 'No active subscription found',
                 );
+              }
             },
           ),
           ListTile(
@@ -236,8 +237,9 @@ class SettingsScreen extends ConsumerWidget {
             value: p.healthSync,
             onChanged: (v) async {
               if (v && !await s.health.requestAccess()) {
-                if (context.mounted)
+                if (context.mounted) {
                   showSnack(context, 'Health access not granted');
+                }
                 return;
               }
               await _saveProfile(ref, p.copyWith(healthSync: v));
@@ -258,8 +260,9 @@ class SettingsScreen extends ConsumerWidget {
               if (v &&
                   !(await s.biometric.available() &&
                       await s.biometric.unlock())) {
-                if (context.mounted)
+                if (context.mounted) {
                   showSnack(context, 'Biometrics unavailable on this device');
+                }
                 return;
               }
               await _saveProfile(ref, p.copyWith(biometricLock: v));

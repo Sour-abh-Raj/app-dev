@@ -214,8 +214,9 @@ class PlanEngine {
   }
 
   static int _delta(int week, int index) {
-    if ((week == 2 || week == 3) && index == 0)
+    if ((week == 2 || week == 3) && index == 0) {
       return 1; // overload the main lift
+    }
     if (week == 4) return -1; // deload
     return 0;
   }

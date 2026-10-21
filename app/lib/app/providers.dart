@@ -244,8 +244,9 @@ final entitlementProvider = NotifierProvider<EntitlementNotifier, Entitlement>(
 final tierProvider = Provider<Tier>((ref) {
   final e = ref.watch(entitlementProvider);
   final now = ref.watch(clockProvider).now();
-  if (!kReleaseMode && ref.watch(debugFlagsProvider).simulateExpired)
+  if (!kReleaseMode && ref.watch(debugFlagsProvider).simulateExpired) {
     return Tier.grace;
+  }
   return e.tierAt(now);
 });
 
@@ -254,8 +255,9 @@ final accessProvider = Provider<Access>(
 );
 
 final winbackEligibleProvider = Provider<bool>((ref) {
-  if (!kReleaseMode && ref.watch(debugFlagsProvider).simulateExpired)
+  if (!kReleaseMode && ref.watch(debugFlagsProvider).simulateExpired) {
     return true;
+  }
   return ref
       .watch(entitlementProvider)
       .winbackEligible(ref.watch(clockProvider).now());

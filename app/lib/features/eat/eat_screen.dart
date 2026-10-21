@@ -79,8 +79,9 @@ class EatScreen extends ConsumerWidget {
               ),
               FilledButton(
                 onPressed: () {
-                  if (Validators.mealText(c.text) == null)
+                  if (Validators.mealText(c.text) == null) {
                     Navigator.pop(ctx, c.text.trim());
+                  }
                 },
                 child: const Text('Log meal'),
               ),

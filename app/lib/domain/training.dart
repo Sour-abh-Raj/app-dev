@@ -63,8 +63,9 @@ PlanSession? missedThisWeek(Plan plan, List<Workout> workouts, DateTime today) {
   final pos = positionOf(plan, today);
   PlanSession? missed;
   for (final s in weekOf(plan, pos.mesoWeek).sessions) {
-    if (s.dayIndex < pos.dayOffset && !_done(workouts, pos.week, s.dayIndex))
+    if (s.dayIndex < pos.dayOffset && !_done(workouts, pos.week, s.dayIndex)) {
       missed = s;
+    }
   }
   return missed;
 }

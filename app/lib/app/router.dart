@@ -145,7 +145,8 @@ String? deepLinkToLocation(String link) {
     '/preview',
   ];
   final base = known.firstWhere((k) => path.startsWith(k), orElse: () => '');
-  if (base.isEmpty)
+  if (base.isEmpty) {
     return path == '/settings/subscription' ? '/settings' : null;
+  }
   return uri.hasQuery ? '$base?${uri.query}' : base;
 }
