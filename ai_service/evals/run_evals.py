@@ -1,7 +1,9 @@
 """Golden evals for prompts/vN. Gate every prompt-version bump on these.
 
-  AI_PROVIDER=mock   .venv/bin/python -m evals.run_evals          # wiring check, free
-  AI_PROVIDER=claude .venv/bin/python -m evals.run_evals --live   # real model, costs money
+  .venv/bin/python -m evals.run_evals                               # wiring check, free
+  AI_PROVIDER=openai_compat AI_BASE_URL=https://openrouter.ai/api/v1 AI_API_KEY=… \
+    AI_MODEL_DEFAULT=<vendor model id> .venv/bin/python -m evals.run_evals --live   # costs money
+  AI_PROVIDER=anthropic ANTHROPIC_API_KEY=… .venv/bin/python -m evals.run_evals --live
 
 Scores: meal kcal/protein within the golden range; plans pass the library
 validator; coach replies avoid shaming and unsafe advice; red flags trip.
@@ -26,9 +28,10 @@ THRESHOLDS = {"meal": 0.7, "plan": 1.0, "coach": 0.75}
 
 
 def provider(live: bool):
+    """--live uses whatever AI_PROVIDER / AI_MODEL_* / AI_BASE_URL configure."""
     if live:
-        from app.providers.claude import ClaudeProvider
-        return ClaudeProvider()
+        from app.providers import make_provider
+        return make_provider(get_settings())
     from app.providers.mock import MockProvider
     return MockProvider()
 

@@ -11,7 +11,7 @@ This repo holds the whole iteration-1 prototype. Status against the exit bar is 
 | Path | What |
 |---|---|
 | `app/` | Flutter 3.47 app: Riverpod, go_router, Hive offline outbox, RevenueCat, Firebase, ML Kit Pose, `health` |
-| `ai_service/` | FastAPI AI service for Cloud Run (Claude API, server-side keys), with caps, spend ceiling, idempotency, promo redemption and versioned prompts |
+| `ai_service/` | FastAPI AI service for Cloud Run (any LLM vendor, server-side keys), with caps, spend ceiling, idempotency, promo redemption and versioned prompts |
 | `functions/` | Firebase Functions (TypeScript): RevenueCat webhook mirror, trial nudges, check-in reminders, account purge, photo variants, seeding |
 | `firebase/` | Firestore and Storage security rules, plus composite indexes |
 | `seed/exercises.json` | The 60-exercise library shared by app and server (CI checks that the app copy matches) |
@@ -30,8 +30,23 @@ Flutter app ── Hive (offline truth) ── Outbox ──► SyncEngine ─�
      └── HTTPS + Firebase ID token + Idempotency-Key ──► FastAPI (Cloud Run)
                                                           ├─ caps + spend reservation (1 atomic Firestore tx)
                                                           ├─ response cache, prompt pins (prompts/vN)
-                                                          └─ Claude API (server-side key) ── mock provider in tests
+                                                          └─ any LLM vendor (OpenAI-compatible or Anthropic) ── mock in tests
 ```
+
+## Download a test build
+
+Every iteration is published on **GitHub Releases** with installable builds (see *Releases* on the repo page):
+
+| Asset | Use |
+|---|---|
+| `forme-<tag>-android-offline-demo.apk` | Open it on an Android phone (allow *Install unknown apps*). No account needed: AI, purchases and sync are simulated on the device. |
+| `forme-<tag>-android-dev-backend.apk` | Built instead when the `CONFIG_DEV_JSON` secret is set: talks to the real dev backend |
+| `forme-<tag>-ios-simulator.app.zip` | Drag onto the iOS Simulator (Xcode on a Mac) |
+| `forme-<tag>-ios-unsigned.ipa` | iPhones only install **signed** apps. Re-sign it (AltStore / Sideloadly / your Apple team) or use TestFlight (`fastlane ios beta`) |
+
+To publish a release, push a tag: `git tag v0.1.0-iter1 && git push origin v0.1.0-iter1`. You can also run *Release (per iteration)* by hand from the Actions tab.
+
+These are *dogfood* builds: Flutter **profile** mode, which is AOT-compiled and fast, and keeps the Debug tools for simulating the day-7 check-in and trial expiry. Store builds are release mode and go through Fastlane. To let new APKs install over old ones, add the optional `ANDROID_KEYSTORE_BASE64` + `ANDROID_KEY_PROPERTIES` secrets so every build has the same signature.
 
 ## Run it locally (no accounts needed)
 
@@ -63,7 +78,7 @@ firebase emulators:start --only auth,firestore,storage,functions
 | Rules + webhook (emulator) | `firebase emulators:exec --only firestore,storage "npm --prefix functions run test:emulator"` | 20 tests |
 | Firestore store (emulator) | `firebase emulators:exec --only firestore "cd ai_service && .venv/bin/pytest -m emulator"` | 10 tests |
 | Cap load test (exit bar 4) | `firebase emulators:exec --only auth,firestore "ai_service/.venv/bin/python tool/load_test_caps.py"` | all scenarios pass |
-| Prompt evals | `cd ai_service && AI_PROVIDER=claude .venv/bin/python -m evals.run_evals --live` | **not run yet:** needs `ANTHROPIC_API_KEY` |
+| Prompt evals | `cd ai_service && .venv/bin/python -m evals.run_evals --live` (uses the configured vendor) | **not run yet:** needs a vendor key |
 
 ## Setup for real (dev → staging → prod)
 
@@ -88,8 +103,26 @@ firebase emulators:start --only auth,firestore,storage,functions
 6. Upload a placeholder render to `previews/_placeholder/v1.jpg`. This is the D5 stub image.
 
 ### 2. AI service (Cloud Run)
+
+**Pick any model vendor.** Set it with env vars only; nothing in the code assumes a vendor:
+
+| Vendor | `AI_PROVIDER` | `AI_BASE_URL` | `AI_MODEL_DEFAULT` example |
+|---|---|---|---|
+| OpenRouter (hundreds of models, one key) | `openai_compat` | `https://openrouter.ai/api/v1` | `openai/gpt-4o-mini`, `anthropic/claude-opus-5-5`, … |
+| OpenAI | `openai_compat` | `https://api.openai.com/v1` (default) | `gpt-4o-mini` |
+| Together / Groq / Mistral / DeepSeek / Fireworks | `openai_compat` | the vendor's `/v1` URL | the vendor's model id |
+| Self-hosted Ollama / vLLM | `openai_compat` | `http://host:11434/v1` (no key) | `llama3.2-vision` |
+| Anthropic | `anthropic` | — | `claude-opus-5-5` (key in `ANTHROPIC_API_KEY`) |
+
+Other settings:
+- **Per-route models:** `AI_MODEL_MEAL`, `AI_MODEL_CHAT`, `AI_MODEL_CHECKIN`, `AI_MODEL_PLAN`. The meal and check-in models must support images.
+- **`AI_JSON_MODE`:** `json_schema` (default), `json_object`, or `prompt`. Use the strongest one your model supports; output is always validated on the server.
+- **Spend ceiling prices:** set `AI_PRICE_INPUT_PER_MTOK` / `AI_PRICE_OUTPUT_PER_MTOK` to your model's prices, or the ceiling bills at a conservative $5/$25 per million tokens.
+- **OpenRouter attribution headers (optional):** `AI_EXTRA_HEADERS="HTTP-Referer=https://forme.ai,X-Title=Forme AI"`.
+- **Before going live:** run `evals/run_evals.py --live` against your chosen model.
+
 ```bash
-gcloud secrets create anthropic-api-key --data-file=-     # Claude API key — server only
+gcloud secrets create ai-api-key --data-file=-            # vendor API key — server only
 gcloud secrets create promo-pepper --data-file=-          # long random string
 gcloud secrets create revenuecat-secret-key --data-file=-
 docker build -f ai_service/Dockerfile -t REGION-docker.pkg.dev/PROJECT/forme/forme-ai:TAG .
@@ -97,7 +130,7 @@ docker push …
 # edit ai_service/service.yaml (PROJECT_ID, REGION, TAG, ADMIN_* values), then:
 gcloud run services replace ai_service/service.yaml --region REGION
 ```
-`service.yaml` follows the spec: min 1 and max 20 instances, 2 CPU / 4 GiB, concurrency 10, 60 s timeout, secrets from Secret Manager. The model defaults to `claude-opus-5-5` on every route, with per-route overrides through `AI_MODEL_MEAL` / `AI_MODEL_CHAT`. The Claude client opts into server-side refusal fallback (`fallbacks: "default"`).
+`service.yaml` follows the spec: min 1 and max 20 instances, 2 CPU / 4 GiB, concurrency 10, 60 s timeout, secrets from Secret Manager. Its defaults are OpenRouter values; change the env block for your vendor.
 
 To pin a prompt version (service account only):
 `POST /v1/admin/prompt-pin {"route":"coach","version":"v2"}` using a Google OIDC token for an account listed in `ADMIN_SERVICE_ACCOUNTS`. Run the live evals before pinning.
@@ -140,7 +173,9 @@ ASC_KEY_ID=… ASC_ISSUER_ID=… ASC_KEY_CONTENT=<base64 p8> MATCH_PASSWORD=… 
 PLAY_JSON_KEY_PATH=… bundle exec fastlane android beta flavor:prod
 # P5 release lanes exist but refuse to run until FORME_RELEASE_APPROVED=yes (after dogfood sign-off).
 ```
-Android release signing reads `android/key.properties` (gitignored). Flavors are `dev`, `staging` and `prod` (applicationId suffixes `.dev` / `.staging`). iOS uses one scheme; the bundle id comes from `FORME_BUNDLE_ID` (xcconfig default, overridden by the lane). Set the Google Sign-In ids in `ios/Flutter/*.xcconfig`, then enable these capabilities in Xcode once: Sign in with Apple, HealthKit, Push.
+Android release signing reads `android/key.properties` (gitignored). Flavors are `dev`, `staging` and `prod` (applicationId suffixes `.dev` / `.staging`). iOS uses one scheme; the bundle id comes from `FORME_BUNDLE_ID` (xcconfig default, overridden by the lane).
+
+Google sign-in uses Firebase Auth's provider flow: there's no Google SDK and no client ids. On iOS, set `FIREBASE_ENCODED_APP_ID` in `ios/Flutter/*.xcconfig` to the iOS app's "Encoded App ID" from the Firebase console. On Android, add the app's SHA-1/SHA-256 in Firebase. Then enable these capabilities in Xcode once: Sign in with Apple, HealthKit, Push.
 
 ## Product rules implemented (quick reference)
 

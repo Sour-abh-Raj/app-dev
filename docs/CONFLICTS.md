@@ -4,7 +4,7 @@
 
 | # | Conflict | Decision |
 |---|---|---|
-| 1 | "AI keys server-side only", but no AI provider is named | **Claude API.** `claude-opus-5-5` by default with per-route env overrides, plus a deterministic mock for tests/CI/evals |
+| 1 | "AI keys server-side only", but no AI provider is named | First answer: Claude. **Revised: vendor-neutral.** Any OpenAI-compatible API (OpenAI, OpenRouter, Together, Groq, self-hosted…) or Anthropic, chosen by env; a deterministic mock for tests/CI/evals |
 | 2 | Grace mode "lose ALL AI" vs the free-forever tier's 3 AI meals/day + 5 chats. This would leave expired users with less than people who never paid | **Expired = free tier.** Pro AI (re-plans, photo reports, timeline/morph) goes; free allowances stay |
 | 3 | §3 puts Weekly in "onboarding/winback", but §7 offerings exclude it there | **Follow §7 exactly.** Weekly appears in `settings` and `weekly_entry`; `weekly_entry_geos` in Remote Config routes price-sensitive geos |
 | 4 | Real accounts and devices are needed for several exit-bar items | **Build with emulators/mocks** and report those items NOT-DONE with steps (see EXIT_BAR.md) |
@@ -28,3 +28,4 @@
 | 17 | "Hive" | Used `hive` 2.2.3 as named (the `hive_ce` fork is the maintained one; switching needs your OK) |
 | 18 | `conversion_event_reached` isn't defined | Defined as **the first AI check-in report rendered** (the aha moment). Logged once per install |
 | 19 | Exact versions for "Flutter 3.x" | Flutter 3.47.7 (latest stable at build time). Package majors as resolved by `pub` on 2026-10-21 |
+| 20 | Auth spec says Apple/Google/email; the native Google Sign-In iOS SDK can't coexist with Firebase iOS 13 (dependency conflict found in CI) | Google sign-in goes through Firebase Auth's provider flow (system browser sheet) instead of the native SDK. Same user-facing button |

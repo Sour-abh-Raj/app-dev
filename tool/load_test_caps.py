@@ -123,11 +123,12 @@ def main() -> int:
                              "days_per_week": 3, "mins": 30}}
         results.append(check("free plan generate (1 lifetime)", asyncio.run(
             burst(t, "/v1/plan/generate", [ob] * 12)), 1, "plan_generate"))
-        # Pro: 40 concurrent meal scans → exactly 15 (daily Pro cap).
+        # Pro: 30 concurrent meal scans → exactly 15 (daily Pro cap). 30 keeps the
+        # burst under the per-instance soft limiter even if one worker gets all.
         t = user_token("pro-meal@load.test")
         make_pro(uid_of(t))
         results.append(check("pro meal cap (15/day)", asyncio.run(
-            burst(t, "/v1/meal/analyze", [{"text": f"pro meal {i}"} for i in range(40)])),
+            burst(t, "/v1/meal/analyze", [{"text": f"pro meal {i}"} for i in range(30)])),
             15, "meal"))
         # Pro near the $1.50 ceiling: 30 concurrent chats must not overshoot it.
         t = user_token("pro-spend@load.test")

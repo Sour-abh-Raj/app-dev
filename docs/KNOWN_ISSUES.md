@@ -5,7 +5,7 @@
 2. **Progress photos don't come back on a new device.** Reports and check-in metadata sync, but the timeline reads local files. A restore should download the `_thumb` / `_1024` variants (owner-only Storage reads are already allowed).
 3. **Crashlytics symbols.** Release lanes build with `--obfuscate --split-debug-info`, but no symbol/mapping upload step exists yet (`firebase crashlytics:symbols:upload`, dSYM upload).
 4. **iOS has one scheme.** Flavors work via `FORME_BUNDLE_ID` (xcconfig default, Fastlane override) plus per-flavor dart-defines. Separate Xcode schemes/configurations, and HealthKit / Sign in with Apple / Push capabilities, need enabling once in Xcode.
-5. **Google Sign-In ids are placeholders** (`REPLACE_ME` in `ios/Flutter/*.xcconfig`, `GOOGLE_*` in config JSON).
+5. **`FIREBASE_ENCODED_APP_ID` is a placeholder** in `ios/Flutter/*.xcconfig`. It's needed for the Google sign-in redirect on iOS.
 6. **Not built locally for Android or iOS.** The container's network policy blocked `dl.google.com` (Android SDK), and there's no macOS. CI builds both, so check the first CI run.
 
 ## Behaviour gaps (acceptable for dogfood)
@@ -27,12 +27,12 @@
 20. The Python SDK is pinned to `anthropic==1.17.0` (2.0 exists; upgrade deliberately).
 
 ## Cost note
-Every route defaults to `claude-opus-5-5`. Rough per-call estimates:
+Cost now depends on the vendor and model you choose. For scale, at a frontier-model price of $4 in / $20 out per million tokens:
 
 | Call | Approx. cost |
 |---|---|
 | Meal | ~$0.012 |
-| Check-in (5 images, high effort) | ~$0.05–0.10 |
+| Check-in (5 images) | ~$0.05–0.10 |
 | Chat | ~$0.01 |
 
-A heavy Pro month (150 meals, 4–6 reports, 20 chats, re-plans) can approach $1.50. The atomic ceiling holds it there, and users then see `cap: "spend"`. If that happens often, routing meals and chat to a cheaper model (`AI_MODEL_MEAL`, `AI_MODEL_CHAT`) is a one-line env change — but it's your call, so it's left unchanged.
+On that model, a heavy Pro month can approach $1.50. Small vision models through OpenRouter or OpenAI cost 10–50× less. Whatever you pick, set `AI_PRICE_*` so the ceiling measures the real cost. The full unit-economics calculation is a tracked follow-up (see `docs/ROADMAP.md`).

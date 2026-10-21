@@ -116,6 +116,18 @@ PRICES_PER_MTOK: dict[str, tuple[float, float]] = {
 }
 
 
+# Unknown models fall back to a deliberately high price so the spend ceiling
+# errs on the safe side. Set AI_PRICE_INPUT/OUTPUT_PER_MTOK for your model.
+CONSERVATIVE_PRICE = (5.00, 25.00)
+
+
 def cost_usd(model: str, input_tokens: int, output_tokens: int) -> float:
-    pin, pout = PRICES_PER_MTOK.get(model, PRICES_PER_MTOK["claude-opus-5-5"])
+    if model in PRICES_PER_MTOK:
+        pin, pout = PRICES_PER_MTOK[model]
+    else:
+        from .config import get_settings
+
+        s = get_settings()
+        pin, pout = ((s.ai_price_in, s.ai_price_out) if (s.ai_price_in or s.ai_price_out)
+                     else CONSERVATIVE_PRICE)
     return (input_tokens * pin + output_tokens * pout) / 1_000_000

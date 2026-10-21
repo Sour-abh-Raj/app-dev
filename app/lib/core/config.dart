@@ -15,12 +15,6 @@ class AppConfig {
   );
   static const rcIosKey = String.fromEnvironment('RC_IOS_KEY');
   static const rcAndroidKey = String.fromEnvironment('RC_ANDROID_KEY');
-  static const googleIosClientId = String.fromEnvironment(
-    'GOOGLE_IOS_CLIENT_ID',
-  );
-  static const googleServerClientId = String.fromEnvironment(
-    'GOOGLE_SERVER_CLIENT_ID',
-  );
   static const useEmulators = bool.fromEnvironment('USE_EMULATORS');
   static const emulatorHost = String.fromEnvironment(
     'EMULATOR_HOST',

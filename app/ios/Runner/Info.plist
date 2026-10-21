@@ -81,13 +81,13 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>forme</string>
-				<!-- Google Sign-In: replace with the REVERSED_CLIENT_ID of your iOS OAuth client. -->
-				<string>$(GOOGLE_REVERSED_CLIENT_ID)</string>
+				<!-- Firebase Auth provider sign-in (Google) returns here: the iOS app's
+				     "Encoded App ID" from the Firebase console (app-1-…-ios-…). -->
+				<string>$(FIREBASE_ENCODED_APP_ID)</string>
 			</array>
 		</dict>
 	</array>
-	<key>GIDClientID</key>
-	<string>$(GOOGLE_IOS_CLIENT_ID)</string>
+
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -7,3 +7,4 @@ google-cloud-firestore==2.34.1
 google-cloud-storage==3.17.1
 google-auth==2.62.0
 pillow==13.0.0
+httpx==0.28.1

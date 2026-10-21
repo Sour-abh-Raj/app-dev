@@ -26,6 +26,7 @@ from .models import (AiReport, CheckinAnalyzeRequest, CheckinAnalyzeResponse, Co
                      PlanGenerateRequest, PlanRegenerateRequest, PlanResponse, PromoRedeemRequest,
                      PromoRedeemResponse, PromptPinRequest, PreviewRenderRequest,
                      PreviewRenderResponse)
+from .providers import make_provider
 from .providers.base import AiError, Image, Provider
 from .store import MemoryStore, PromoError, Store, StoreBusy, get_store
 
@@ -108,15 +109,7 @@ def store_dep() -> Store:
 def provider_dep(request: Request) -> Provider:
     p = request.app.state.provider
     if p is None:
-        s = get_settings()
-        if s.provider == "claude":
-            from .providers.claude import ClaudeProvider
-
-            p = ClaudeProvider(timeout_s=s.request_timeout_s)
-        else:
-            from .providers.mock import MockProvider
-
-            p = MockProvider()
+        p = make_provider(get_settings())
         request.app.state.provider = p
     return p
 

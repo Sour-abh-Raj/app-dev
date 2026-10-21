@@ -56,5 +56,5 @@ def test_buckets_include_all_limits():
 
 def test_cost():
     assert cost_usd("claude-opus-5-5", 1_000_000, 0) == pytest.approx(4.0)
-    assert cost_usd("unknown-model", 0, 1_000_000) == pytest.approx(20.0)
+    assert cost_usd("unknown-model", 0, 1_000_000) == pytest.approx(25.0)  # conservative
     assert cost_usd("mock", 10, 10) == 0

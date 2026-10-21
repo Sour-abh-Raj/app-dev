@@ -5,10 +5,7 @@ import 'dart:math' as math;
 import 'package:crypto/crypto.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
-
-import '../core/config.dart';
 
 class AppUser {
   const AppUser({required this.uid, this.email, this.displayName});
@@ -38,7 +35,6 @@ class FirebaseAuthService implements AuthService {
   FirebaseAuthService(this._auth);
 
   final FirebaseAuth _auth;
-  bool _googleReady = false;
 
   static AppUser? _map(User? u) => u == null
       ? null
@@ -91,31 +87,20 @@ class FirebaseAuthService implements AuthService {
     return _map(_auth.currentUser)!;
   }
 
+  /// Google via Firebase Auth's provider flow (system browser sheet). No
+  /// native Google Sign-In SDK: its iOS pod conflicts with Firebase iOS 13.
   @override
   Future<AppUser> signInWithGoogle() async {
-    final g = GoogleSignIn.instance;
-    if (!_googleReady) {
-      await g.initialize(
-        clientId: AppConfig.googleIosClientId.isEmpty
-            ? null
-            : AppConfig.googleIosClientId,
-        serverClientId: AppConfig.googleServerClientId.isEmpty
-            ? null
-            : AppConfig.googleServerClientId,
-      );
-      _googleReady = true;
-    }
-    final GoogleSignInAccount account;
     try {
-      account = await g.authenticate();
-    } on GoogleSignInException catch (e) {
-      if (e.code == GoogleSignInExceptionCode.canceled) throw AuthCancelled();
+      await _auth.signInWithProvider(
+        GoogleAuthProvider()..setCustomParameters({'prompt': 'select_account'}),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'web-context-canceled' || e.code == 'canceled') {
+        throw AuthCancelled();
+      }
       rethrow;
     }
-    final cred = GoogleAuthProvider.credential(
-      idToken: account.authentication.idToken,
-    );
-    await _auth.signInWithCredential(cred);
     return _map(_auth.currentUser)!;
   }
 
@@ -137,10 +122,7 @@ class FirebaseAuthService implements AuthService {
   }
 
   @override
-  Future<void> signOut() async {
-    await _auth.signOut();
-    if (_googleReady) await GoogleSignIn.instance.signOut();
-  }
+  Future<void> signOut() => _auth.signOut();
 
   static String _nonce([int length = 32]) {
     const chars =

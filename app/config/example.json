@@ -10,8 +10,6 @@
   "IOS_BUNDLE_ID": "ai.forme.app.dev",
   "RC_IOS_KEY": "appl_...",
   "RC_ANDROID_KEY": "goog_...",
-  "GOOGLE_IOS_CLIENT_ID": "",
-  "GOOGLE_SERVER_CLIENT_ID": "",
   "USE_EMULATORS": false,
   "EMULATOR_HOST": "10.0.2.2",
   "DEMO_MODE": false

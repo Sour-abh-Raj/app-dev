@@ -24,6 +24,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    buildFeatures {
+        resValues = true // per-flavor app_name
+    }
+
     defaultConfig {
         applicationId = "ai.forme.app"
         // Health Connect + ML Kit pose need API 26+.
@@ -65,6 +69,11 @@ android {
     }
 
     buildTypes {
+        // Dogfood (profile) APKs on GitHub Releases: sign with the upload key when
+        // CI has it, so each iteration installs over the previous one.
+        matching { it.name == "profile" }.configureEach {
+            if (keyProps.containsKey("storeFile")) signingConfig = signingConfigs.getByName("release")
+        }
         release {
             signingConfig = if (keyProps.containsKey("storeFile"))
                 signingConfigs.getByName("release") else signingConfigs.getByName("debug")

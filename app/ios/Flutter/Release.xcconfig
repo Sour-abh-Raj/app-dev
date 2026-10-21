@@ -1,5 +1,5 @@
 #include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
 #include "Generated.xcconfig"
 FORME_BUNDLE_ID = ai.forme.app
-GOOGLE_IOS_CLIENT_ID = REPLACE_ME.apps.googleusercontent.com
-GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.REPLACE_ME
+// Firebase console → iOS app → Encoded App ID (for Google sign-in redirect).
+FIREBASE_ENCODED_APP_ID = app-1-000000000000-ios-0000000000000000000000
