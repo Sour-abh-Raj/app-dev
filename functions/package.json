@@ -14,8 +14,8 @@
     "seed": "node lib/scripts/seed.js"
   },
   "dependencies": {
-    "firebase-admin": "13.10.0",
-    "firebase-functions": "6.6.0",
+    "firebase-admin": "14.5.0",
+    "firebase-functions": "7.4.0",
     "sharp": "0.35.5"
   },
   "devDependencies": {
