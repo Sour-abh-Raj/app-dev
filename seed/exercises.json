@@ -1,0 +1,1426 @@
+{
+ "version": 1,
+ "exercises": [
+  {
+   "id": "goblet_squat",
+   "name": "Goblet squat",
+   "muscle": "quads",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hold the bell at chest height",
+    "Sit between your hips",
+    "Knees track over toes"
+   ],
+   "substitutions": [
+    "bodyweight_squat",
+    "box_squat",
+    "leg_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "bodyweight_squat",
+   "name": "Bodyweight squat",
+   "muscle": "quads",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Feet shoulder-width",
+    "Chest tall",
+    "Drive through mid-foot"
+   ],
+   "substitutions": [
+    "goblet_squat",
+    "box_squat",
+    "wall_sit"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "box_squat",
+   "name": "Box squat",
+   "muscle": "quads",
+   "equipment": [
+    "bench"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Sit back to the box",
+    "Touch, don't rest",
+    "Stand tall"
+   ],
+   "substitutions": [
+    "bodyweight_squat",
+    "goblet_squat",
+    "glute_bridge"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "back_squat",
+   "name": "Barbell back squat",
+   "muscle": "quads",
+   "equipment": [
+    "barbell"
+   ],
+   "difficulty": 3,
+   "contraindications": [
+    "knee",
+    "lower_back"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Bar on upper traps",
+    "Brace before descent",
+    "Hips and chest rise together"
+   ],
+   "substitutions": [
+    "goblet_squat",
+    "leg_press",
+    "front_squat"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "front_squat",
+   "name": "Barbell front squat",
+   "muscle": "quads",
+   "equipment": [
+    "barbell"
+   ],
+   "difficulty": 3,
+   "contraindications": [
+    "knee",
+    "wrist"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Elbows high",
+    "Upright torso",
+    "Sit straight down"
+   ],
+   "substitutions": [
+    "goblet_squat",
+    "back_squat",
+    "leg_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "leg_press",
+   "name": "Leg press",
+   "muscle": "quads",
+   "equipment": [
+    "machine"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Feet mid-platform",
+    "Don't lock knees",
+    "Lower under control"
+   ],
+   "substitutions": [
+    "goblet_squat",
+    "box_squat",
+    "bodyweight_squat"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "reverse_lunge",
+   "name": "Dumbbell reverse lunge",
+   "muscle": "quads",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Step back long",
+    "Front shin vertical",
+    "Push through front heel"
+   ],
+   "substitutions": [
+    "split_squat",
+    "step_up",
+    "goblet_squat"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "split_squat",
+   "name": "Split squat",
+   "muscle": "quads",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Staggered stance",
+    "Drop straight down",
+    "Torso tall"
+   ],
+   "substitutions": [
+    "reverse_lunge",
+    "step_up",
+    "box_squat"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "bulgarian_split_squat",
+   "name": "Bulgarian split squat",
+   "muscle": "quads",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Rear foot on bench",
+    "Most weight on front leg",
+    "Control the descent"
+   ],
+   "substitutions": [
+    "split_squat",
+    "reverse_lunge",
+    "step_up"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "step_up",
+   "name": "Dumbbell step-up",
+   "muscle": "quads",
+   "equipment": [
+    "bench"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Whole foot on the box",
+    "Drive through heel",
+    "Control the way down"
+   ],
+   "substitutions": [
+    "split_squat",
+    "reverse_lunge",
+    "glute_bridge"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "wall_sit",
+   "name": "Wall sit",
+   "muscle": "quads",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "knee"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Thighs parallel",
+    "Back flat to wall",
+    "Breathe steadily"
+   ],
+   "substitutions": [
+    "bodyweight_squat",
+    "glute_bridge",
+    "box_squat"
+   ],
+   "kind": "time"
+  },
+  {
+   "id": "rdl_db",
+   "name": "Dumbbell Romanian deadlift",
+   "muscle": "hamstrings",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "lower_back"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Soft knees",
+    "Push hips back",
+    "Bells close to legs"
+   ],
+   "substitutions": [
+    "glute_bridge",
+    "hip_thrust",
+    "leg_curl"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "rdl_bb",
+   "name": "Barbell Romanian deadlift",
+   "muscle": "hamstrings",
+   "equipment": [
+    "barbell"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "lower_back"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hinge at hips",
+    "Bar slides down thighs",
+    "Neutral spine"
+   ],
+   "substitutions": [
+    "rdl_db",
+    "hip_thrust",
+    "leg_curl"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "deadlift",
+   "name": "Barbell deadlift",
+   "muscle": "hamstrings",
+   "equipment": [
+    "barbell"
+   ],
+   "difficulty": 3,
+   "contraindications": [
+    "lower_back"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Bar over mid-foot",
+    "Brace and pull slack",
+    "Push the floor away"
+   ],
+   "substitutions": [
+    "rdl_bb",
+    "rdl_db",
+    "hip_thrust"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "glute_bridge",
+   "name": "Glute bridge",
+   "muscle": "glutes",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Heels close to hips",
+    "Squeeze glutes at top",
+    "Ribs down"
+   ],
+   "substitutions": [
+    "hip_thrust",
+    "single_leg_bridge",
+    "box_squat"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "single_leg_bridge",
+   "name": "Single-leg glute bridge",
+   "muscle": "glutes",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 2,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "One knee to chest",
+    "Drive through heel",
+    "Hips level"
+   ],
+   "substitutions": [
+    "glute_bridge",
+    "hip_thrust",
+    "step_up"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "hip_thrust",
+   "name": "Hip thrust",
+   "muscle": "glutes",
+   "equipment": [
+    "bench"
+   ],
+   "difficulty": 2,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Upper back on bench",
+    "Chin tucked",
+    "Full lockout squeeze"
+   ],
+   "substitutions": [
+    "glute_bridge",
+    "single_leg_bridge",
+    "rdl_db"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "leg_curl",
+   "name": "Lying leg curl",
+   "muscle": "hamstrings",
+   "equipment": [
+    "machine"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Hips pressed down",
+    "Curl smoothly",
+    "Slow return"
+   ],
+   "substitutions": [
+    "rdl_db",
+    "glute_bridge",
+    "single_leg_bridge"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "calf_raise",
+   "name": "Standing calf raise",
+   "muscle": "calves",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "ankle"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Full stretch at bottom",
+    "Pause at top",
+    "Slow tempo"
+   ],
+   "substitutions": [
+    "seated_calf_raise",
+    "step_up",
+    "wall_sit"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "seated_calf_raise",
+   "name": "Seated calf raise",
+   "muscle": "calves",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Weight on knees",
+    "Full range",
+    "Pause at top"
+   ],
+   "substitutions": [
+    "calf_raise",
+    "glute_bridge",
+    "wall_sit"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "pushup",
+   "name": "Push-up",
+   "muscle": "chest",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "wrist",
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hands under shoulders",
+    "Body in one line",
+    "Chest to fist height"
+   ],
+   "substitutions": [
+    "incline_pushup",
+    "db_bench",
+    "knee_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "knee_pushup",
+   "name": "Knee push-up",
+   "muscle": "chest",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "wrist"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Knees down, hips forward",
+    "Elbows ~45\u00b0",
+    "Full range"
+   ],
+   "substitutions": [
+    "incline_pushup",
+    "pushup",
+    "db_floor_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "incline_pushup",
+   "name": "Incline push-up",
+   "muscle": "chest",
+   "equipment": [
+    "bench"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "wrist"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hands on bench",
+    "Straight body",
+    "Lower with control"
+   ],
+   "substitutions": [
+    "knee_pushup",
+    "pushup",
+    "db_bench"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "db_bench",
+   "name": "Dumbbell bench press",
+   "muscle": "chest",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Shoulder blades pinched",
+    "Elbows ~45\u00b0",
+    "Press up and slightly in"
+   ],
+   "substitutions": [
+    "db_floor_press",
+    "pushup",
+    "bb_bench"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "db_floor_press",
+   "name": "Dumbbell floor press",
+   "muscle": "chest",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Lie on floor",
+    "Elbows touch floor softly",
+    "Press straight up"
+   ],
+   "substitutions": [
+    "db_bench",
+    "pushup",
+    "knee_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "bb_bench",
+   "name": "Barbell bench press",
+   "muscle": "chest",
+   "equipment": [
+    "barbell",
+    "bench"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Feet planted",
+    "Bar to lower chest",
+    "Drive back into bench"
+   ],
+   "substitutions": [
+    "db_bench",
+    "pushup",
+    "machine_chest_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "incline_db_press",
+   "name": "Incline dumbbell press",
+   "muscle": "chest",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Bench at 30\u00b0",
+    "Elbows under wrists",
+    "Control the stretch"
+   ],
+   "substitutions": [
+    "db_bench",
+    "pushup",
+    "machine_chest_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "machine_chest_press",
+   "name": "Machine chest press",
+   "muscle": "chest",
+   "equipment": [
+    "machine"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Handles at mid-chest",
+    "Press smoothly",
+    "Don't lock out hard"
+   ],
+   "substitutions": [
+    "db_bench",
+    "pushup",
+    "incline_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "db_fly",
+   "name": "Dumbbell fly",
+   "muscle": "chest",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Slight elbow bend",
+    "Wide arc",
+    "Stop at chest level"
+   ],
+   "substitutions": [
+    "db_bench",
+    "pushup",
+    "cable_fly"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "cable_fly",
+   "name": "Cable fly",
+   "muscle": "chest",
+   "equipment": [
+    "cable"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Step forward, staggered",
+    "Hug a tree",
+    "Squeeze at middle"
+   ],
+   "substitutions": [
+    "db_fly",
+    "pushup",
+    "machine_chest_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "db_shoulder_press",
+   "name": "Dumbbell shoulder press",
+   "muscle": "shoulders",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Brace your core",
+    "Press overhead",
+    "Biceps by ears"
+   ],
+   "substitutions": [
+    "pike_pushup",
+    "landmine_press",
+    "machine_shoulder_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "pike_pushup",
+   "name": "Pike push-up",
+   "muscle": "shoulders",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder",
+    "wrist"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hips high",
+    "Head toward floor between hands",
+    "Press back up"
+   ],
+   "substitutions": [
+    "db_shoulder_press",
+    "pushup",
+    "incline_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "landmine_press",
+   "name": "Landmine press",
+   "muscle": "shoulders",
+   "equipment": [
+    "barbell"
+   ],
+   "difficulty": 2,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Half-kneeling",
+    "Press up and forward",
+    "Ribs down"
+   ],
+   "substitutions": [
+    "db_shoulder_press",
+    "pike_pushup",
+    "incline_db_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "machine_shoulder_press",
+   "name": "Machine shoulder press",
+   "muscle": "shoulders",
+   "equipment": [
+    "machine"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Seat so handles at shoulder",
+    "Press smoothly",
+    "Control down"
+   ],
+   "substitutions": [
+    "db_shoulder_press",
+    "landmine_press",
+    "pike_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "lateral_raise",
+   "name": "Dumbbell lateral raise",
+   "muscle": "shoulders",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Slight forward lean",
+    "Lead with elbows",
+    "Stop at shoulder height"
+   ],
+   "substitutions": [
+    "band_lateral_raise",
+    "cable_lateral_raise",
+    "db_shoulder_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "band_lateral_raise",
+   "name": "Band lateral raise",
+   "muscle": "shoulders",
+   "equipment": [
+    "bands"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Stand on band",
+    "Raise to shoulder height",
+    "Slow return"
+   ],
+   "substitutions": [
+    "lateral_raise",
+    "cable_lateral_raise",
+    "pike_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "cable_lateral_raise",
+   "name": "Cable lateral raise",
+   "muscle": "shoulders",
+   "equipment": [
+    "cable"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Cable behind body",
+    "Smooth arc",
+    "Pause at top"
+   ],
+   "substitutions": [
+    "lateral_raise",
+    "band_lateral_raise",
+    "db_shoulder_press"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "db_triceps_ext",
+   "name": "Overhead triceps extension",
+   "muscle": "triceps",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "elbow",
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Elbows point up",
+    "Lower behind head",
+    "Extend fully"
+   ],
+   "substitutions": [
+    "bench_dip",
+    "triceps_pushdown",
+    "close_grip_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "bench_dip",
+   "name": "Bench dip",
+   "muscle": "triceps",
+   "equipment": [
+    "bench"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "shoulder",
+    "wrist"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hands at bench edge",
+    "Elbows back",
+    "Shoulders down"
+   ],
+   "substitutions": [
+    "close_grip_pushup",
+    "db_triceps_ext",
+    "triceps_pushdown"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "close_grip_pushup",
+   "name": "Close-grip push-up",
+   "muscle": "triceps",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "wrist",
+    "elbow"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hands under chest",
+    "Elbows brush ribs",
+    "Full range"
+   ],
+   "substitutions": [
+    "bench_dip",
+    "db_triceps_ext",
+    "knee_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "triceps_pushdown",
+   "name": "Cable triceps pushdown",
+   "muscle": "triceps",
+   "equipment": [
+    "cable"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "elbow"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Elbows pinned",
+    "Push to lockout",
+    "Slow return"
+   ],
+   "substitutions": [
+    "db_triceps_ext",
+    "bench_dip",
+    "close_grip_pushup"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "db_row",
+   "name": "Dumbbell row",
+   "muscle": "back",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "lower_back"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Flat back",
+    "Pull to hip",
+    "Pause at top"
+   ],
+   "substitutions": [
+    "band_row",
+    "inverted_row",
+    "cable_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "chest_supported_row",
+   "name": "Chest-supported dumbbell row",
+   "muscle": "back",
+   "equipment": [
+    "dumbbells",
+    "bench"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Chest on incline bench",
+    "Pull elbows back",
+    "Squeeze blades"
+   ],
+   "substitutions": [
+    "db_row",
+    "band_row",
+    "cable_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "cable_row",
+   "name": "Seated cable row",
+   "muscle": "back",
+   "equipment": [
+    "cable"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Tall torso",
+    "Pull to navel",
+    "Shoulders down"
+   ],
+   "substitutions": [
+    "db_row",
+    "band_row",
+    "chest_supported_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "band_row",
+   "name": "Band row",
+   "muscle": "back",
+   "equipment": [
+    "bands"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Anchor band at chest height",
+    "Elbows back",
+    "Squeeze blades"
+   ],
+   "substitutions": [
+    "db_row",
+    "inverted_row",
+    "chest_supported_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "inverted_row",
+   "name": "Inverted row",
+   "muscle": "back",
+   "equipment": [
+    "barbell"
+   ],
+   "difficulty": 2,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Body straight",
+    "Chest to bar",
+    "Lower slowly"
+   ],
+   "substitutions": [
+    "band_row",
+    "db_row",
+    "cable_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "pullup",
+   "name": "Pull-up",
+   "muscle": "back",
+   "equipment": [
+    "pullup_bar"
+   ],
+   "difficulty": 3,
+   "contraindications": [
+    "shoulder",
+    "elbow"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Dead hang start",
+    "Chest to bar",
+    "Control down"
+   ],
+   "substitutions": [
+    "lat_pulldown",
+    "band_assisted_pullup",
+    "inverted_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "band_assisted_pullup",
+   "name": "Band-assisted pull-up",
+   "muscle": "back",
+   "equipment": [
+    "pullup_bar",
+    "bands"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Knee in band",
+    "Pull chest up",
+    "Slow negative"
+   ],
+   "substitutions": [
+    "pullup",
+    "lat_pulldown",
+    "inverted_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "lat_pulldown",
+   "name": "Lat pulldown",
+   "muscle": "back",
+   "equipment": [
+    "cable"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Thighs under pad",
+    "Pull bar to upper chest",
+    "Lean back slightly"
+   ],
+   "substitutions": [
+    "band_assisted_pullup",
+    "band_row",
+    "db_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "face_pull",
+   "name": "Face pull",
+   "muscle": "rear_delts",
+   "equipment": [
+    "cable"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Pull to eye level",
+    "Elbows high",
+    "Rotate hands back"
+   ],
+   "substitutions": [
+    "reverse_fly",
+    "band_row",
+    "chest_supported_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "reverse_fly",
+   "name": "Dumbbell reverse fly",
+   "muscle": "rear_delts",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "lower_back"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Hinge forward",
+    "Lead with elbows",
+    "Squeeze upper back"
+   ],
+   "substitutions": [
+    "face_pull",
+    "band_row",
+    "chest_supported_row"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "db_curl",
+   "name": "Dumbbell curl",
+   "muscle": "biceps",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "elbow"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Elbows by sides",
+    "Turn palms up",
+    "Slow down"
+   ],
+   "substitutions": [
+    "hammer_curl",
+    "band_curl",
+    "cable_curl"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "hammer_curl",
+   "name": "Hammer curl",
+   "muscle": "biceps",
+   "equipment": [
+    "dumbbells"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "elbow"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Neutral grip",
+    "No swinging",
+    "Full range"
+   ],
+   "substitutions": [
+    "db_curl",
+    "band_curl",
+    "cable_curl"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "band_curl",
+   "name": "Band curl",
+   "muscle": "biceps",
+   "equipment": [
+    "bands"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Stand on band",
+    "Elbows still",
+    "Squeeze at top"
+   ],
+   "substitutions": [
+    "db_curl",
+    "hammer_curl",
+    "cable_curl"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "cable_curl",
+   "name": "Cable curl",
+   "muscle": "biceps",
+   "equipment": [
+    "cable"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "elbow"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Elbows forward slightly",
+    "Curl smoothly",
+    "Control return"
+   ],
+   "substitutions": [
+    "db_curl",
+    "hammer_curl",
+    "band_curl"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "plank",
+   "name": "Plank",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Elbows under shoulders",
+    "Squeeze glutes",
+    "Don't let hips sag"
+   ],
+   "substitutions": [
+    "dead_bug",
+    "bird_dog",
+    "side_plank"
+   ],
+   "kind": "time"
+  },
+  {
+   "id": "side_plank",
+   "name": "Side plank",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "shoulder"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Elbow under shoulder",
+    "Hips high",
+    "Straight line"
+   ],
+   "substitutions": [
+    "plank",
+    "dead_bug",
+    "bird_dog"
+   ],
+   "kind": "time"
+  },
+  {
+   "id": "dead_bug",
+   "name": "Dead bug",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Low back pressed down",
+    "Opposite arm and leg",
+    "Exhale as you reach"
+   ],
+   "substitutions": [
+    "plank",
+    "bird_dog",
+    "hollow_hold"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "bird_dog",
+   "name": "Bird dog",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 1,
+   "contraindications": [],
+   "demo_video_url": "",
+   "cues": [
+    "Hands under shoulders",
+    "Reach long",
+    "Hips level"
+   ],
+   "substitutions": [
+    "dead_bug",
+    "plank",
+    "glute_bridge"
+   ],
+   "kind": "reps"
+  },
+  {
+   "id": "hollow_hold",
+   "name": "Hollow hold",
+   "muscle": "core",
+   "equipment": [
+    "bodyweight"
+   ],
+   "difficulty": 2,
+   "contraindications": [
+    "lower_back"
+   ],
+   "demo_video_url": "",
+   "cues": [
+    "Low back down",
+    "Arms by ears",
+    "Tuck knees to scale"
+   ],
+   "substitutions": [
+    "dead_bug",
+    "plank",
+    "side_plank"
+   ],
+   "kind": "time"
+  }
+ ],
+ "equipment_semantics": "all listed items are required; 'bodyweight' means no equipment"
+}

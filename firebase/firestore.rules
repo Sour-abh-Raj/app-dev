@@ -1,0 +1,94 @@
+rules_version = '2';
+
+// Owner-only read/write. Server-managed fields (entitlement, usage, AI output,
+// deletion) are writable only by Cloud Functions / the AI service (Admin SDK
+// bypasses these rules). Everything not matched below is denied.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function isOwner(uid) { return signedIn() && request.auth.uid == uid; }
+    function untouched(fields) {
+      return !request.resource.data.diff(resource == null ? {} : resource.data)
+        .affectedKeys().hasAny(fields);
+    }
+    function notDeleted(uid) {
+      return !exists(/databases/$(database)/documents/users/$(uid))
+        || get(/databases/$(database)/documents/users/$(uid)).data.get('deleted_at', null) == null;
+    }
+
+    match /users/{uid} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid)
+        && untouched(['entitlement', 'ai_usage', 'deleted_at', 'plan_version', 'winback'])
+        && request.resource.data.get('photo_consent', {}).get('adult', true) == true;
+      allow update: if isOwner(uid) && notDeleted(uid)
+        && untouched(['entitlement', 'ai_usage', 'deleted_at', 'plan_version', 'winback',
+                      'created_at']);
+      allow delete: if false; // deletion goes through requestAccountDeletion (purge ≤24h)
+
+      match /plans/{planId} {
+        allow read: if isOwner(uid);
+        // Clients may only write the offline template plan; AI plans come from the server.
+        allow create, update: if isOwner(uid) && notDeleted(uid)
+          && request.resource.data.source == 'template';
+        allow delete: if false;
+      }
+
+      match /workouts/{workoutId} {
+        allow read: if isOwner(uid);
+        allow create, update: if isOwner(uid) && notDeleted(uid)
+          && request.resource.data.sets is list
+          && request.resource.data.sets.size() <= 200
+          && request.resource.data.get('volume_kg', 0) is number;
+        allow delete: if isOwner(uid);
+      }
+
+      match /checkins/{checkinId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid) && notDeleted(uid)
+          && untouched(['ai_report', 'ai_status', 'morph_path'])
+          && request.resource.data.photos is list
+          && request.resource.data.photos.size() <= 3;
+        allow update: if isOwner(uid) && notDeleted(uid)
+          && untouched(['ai_report', 'ai_status', 'morph_path']);
+        allow delete: if isOwner(uid);
+      }
+
+      match /meals/{mealId} {
+        allow read: if isOwner(uid);
+        allow create, update: if isOwner(uid) && notDeleted(uid)
+          && request.resource.data.logged_at is timestamp;
+        allow delete: if isOwner(uid);
+      }
+
+      match /previews/{previewId} {
+        allow read: if isOwner(uid);
+        allow write: if false;
+      }
+
+      match /usage/{bucket} {
+        allow read: if isOwner(uid);
+        allow write: if false;
+      }
+
+      // ai_jobs (idempotency records) and anything else: server only.
+      match /{other=**} {
+        allow read, write: if false;
+      }
+    }
+
+    match /exercises/{exId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
+    match /subscriptions/{uid} {
+      allow read: if isOwner(uid);
+      allow write: if false;
+    }
+
+    // promo_codes, promo_redemptions, ai_cache, rate_limits, config,
+    // webhook_events: server only (default deny).
+  }
+}

@@ -1,0 +1,6 @@
+[
+  {"goal": "lose_fat", "level": "beginner", "equipment": ["dumbbells"], "days_per_week": 3, "mins": 30, "injuries": [], "sex": "male", "height_cm": 178, "weight_kg": 82},
+  {"goal": "build_muscle", "level": "intermediate", "equipment": ["barbell", "bench", "dumbbells", "cable", "machine"], "days_per_week": 4, "mins": 60, "injuries": ["shoulder"]},
+  {"goal": "strength", "level": "advanced", "equipment": ["barbell", "bench", "dumbbells", "pullup_bar"], "days_per_week": 5, "mins": 75, "injuries": []},
+  {"goal": "tone_up", "level": "beginner", "equipment": ["bodyweight"], "days_per_week": 2, "mins": 20, "injuries": ["knee", "wrist"]}
+]

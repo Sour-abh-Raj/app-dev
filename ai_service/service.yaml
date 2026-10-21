@@ -1,0 +1,43 @@
+# Cloud Run service (gcloud run services replace service.yaml --region=<region>)
+# Replace PROJECT_ID / REGION / image tag; secrets live in Secret Manager.
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: forme-ai
+  annotations:
+    run.googleapis.com/ingress: all
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "20"
+        run.googleapis.com/cpu-throttling: "false"
+        run.googleapis.com/startup-cpu-boost: "true"
+    spec:
+      containerConcurrency: 10
+      timeoutSeconds: 60
+      serviceAccountName: forme-ai@PROJECT_ID.iam.gserviceaccount.com
+      containers:
+        - image: REGION-docker.pkg.dev/PROJECT_ID/forme/forme-ai:TAG
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "2"
+              memory: 4Gi
+          startupProbe:
+            httpGet: { path: /healthz }
+          env:
+            - { name: FORME_ENV, value: prod }
+            - { name: AI_PROVIDER, value: claude }
+            - { name: STORE, value: firestore }
+            - { name: STORAGE_BUCKET, value: PROJECT_ID.firebasestorage.app }
+            - { name: ADMIN_AUDIENCE, value: https://forme-ai-HASH-REGION.a.run.app }
+            - { name: ADMIN_SERVICE_ACCOUNTS, value: forme-admin@PROJECT_ID.iam.gserviceaccount.com }
+            - name: ANTHROPIC_API_KEY
+              valueFrom: { secretKeyRef: { name: anthropic-api-key, key: latest } }
+            - name: PROMO_PEPPER
+              valueFrom: { secretKeyRef: { name: promo-pepper, key: latest } }
+            - name: REVENUECAT_SECRET_KEY
+              valueFrom: { secretKeyRef: { name: revenuecat-secret-key, key: latest } }

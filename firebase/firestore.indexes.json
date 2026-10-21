@@ -1,0 +1,57 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "subscriptions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "trial", "order": "ASCENDING" },
+        { "fieldPath": "renews_at", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "subscriptions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "winback.eligible", "order": "ASCENDING" },
+        { "fieldPath": "expired_at", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "promo_redemptions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "uid", "order": "ASCENDING" },
+        { "fieldPath": "ts", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "checkins",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "ai_status", "order": "ASCENDING" },
+        { "fieldPath": "updated_at", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "workouts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "plan_ref", "order": "ASCENDING" },
+        { "fieldPath": "scheduled_for", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "rate_limits",
+      "fieldPath": "expire_at",
+      "ttl": true,
+      "indexes": []
+    },
+    {
+      "collectionGroup": "ai_cache",
+      "fieldPath": "value",
+      "indexes": []
+    }
+  ]
+}
