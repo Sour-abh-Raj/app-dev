@@ -96,16 +96,22 @@ jobs:
             echo "DEFINES=--dart-define-from-file=config/demo.json" >> "$GITHUB_ENV"
           fi
       - run: flutter pub get
-      - name: Simulator app (runs in Xcode's iOS Simulator on any Mac)
-        run: |
-          flutter build ios --simulator --debug $DEFINES
-          mkdir -p ../dist
-          (cd build/ios/iphonesimulator && zip -qry "../../../../dist/forme-${TAG}-ios-simulator.app.zip" Runner.app)
       - name: Unsigned device IPA (for re-signing with AltStore / Sideloadly / your own team)
         run: |
+          mkdir -p ../dist
           flutter build ios --profile --no-codesign $DEFINES
           rm -rf Payload && mkdir Payload && cp -R build/ios/iphoneos/Runner.app Payload/
           zip -qry "../dist/forme-${TAG}-ios-unsigned.ipa" Payload
+      - name: Simulator app (x86_64; runs in the iOS Simulator, via Rosetta on Apple Silicon)
+        # GoogleMLKit ships no arm64-simulator slice, so build the Intel slice explicitly.
+        continue-on-error: true
+        run: |
+          flutter build ios --simulator --debug --config-only $DEFINES
+          xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner -configuration Debug \
+            -sdk iphonesimulator -derivedDataPath build/sim ARCHS=x86_64 ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO build -quiet
+          (cd build/sim/Build/Products/Debug-iphonesimulator && \
+            zip -qry "../../../../../../dist/forme-${TAG}-ios-simulator-x86_64.app.zip" Runner.app)
       - uses: actions/upload-artifact@v4
         with: { name: ios, path: dist/* }
 
@@ -127,7 +133,7 @@ jobs:
             echo "| File | Install |"
             echo "|---|---|"
             echo "| \`*-android-*.apk\` | Download on the phone → open → allow *Install unknown apps*. Works on emulators too. |"
-            echo "| \`*-ios-simulator.app.zip\` | Unzip, then drag \`Runner.app\` onto a booted iOS Simulator (Xcode on a Mac). |"
+            echo "| \`*-ios-simulator-x86_64.app.zip\` | Unzip, then drag \`Runner.app\` onto a booted iOS Simulator (Xcode on a Mac; Rosetta on Apple Silicon). |"
             echo "| \`*-ios-unsigned.ipa\` | Not installable as-is: iPhones only run signed apps. Re-sign with AltStore/Sideloadly (free Apple ID, 7-day expiry) or use TestFlight. |"
             echo
             echo "\`offline-demo\` builds need no account: everything (AI, purchases, sync) is simulated on the device."

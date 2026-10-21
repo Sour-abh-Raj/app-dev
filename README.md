@@ -41,7 +41,7 @@ Every iteration is published on **GitHub Releases** with installable builds (see
 |---|---|
 | `forme-<tag>-android-offline-demo.apk` | Open it on an Android phone (allow *Install unknown apps*). No account needed: AI, purchases and sync are simulated on the device. |
 | `forme-<tag>-android-dev-backend.apk` | Built instead when the `CONFIG_DEV_JSON` secret is set: talks to the real dev backend |
-| `forme-<tag>-ios-simulator.app.zip` | Drag onto the iOS Simulator (Xcode on a Mac) |
+| `forme-<tag>-ios-simulator-x86_64.app.zip` | Drag onto the iOS Simulator (Xcode on a Mac; Rosetta on Apple Silicon) |
 | `forme-<tag>-ios-unsigned.ipa` | iPhones only install **signed** apps. Re-sign it (AltStore / Sideloadly / your Apple team) or use TestFlight (`fastlane ios beta`) |
 
 To publish a release, push a tag: `git tag v0.1.0-iter1 && git push origin v0.1.0-iter1`. You can also run *Release (per iteration)* by hand from the Actions tab.
