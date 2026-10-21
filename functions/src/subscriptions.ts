@@ -224,10 +224,14 @@ export function isPro(s: SubMirror | null, now: Date): boolean {
   return !!(s.promo?.expires_at && s.promo.expires_at > now);
 }
 
-/** Client-visible users/{uid}.entitlement. */
+/**
+ * Client-visible users/{uid}.entitlement. `pro` reflects the store state only;
+ * promo access is derived on the client from promo_expires_at so it lapses on
+ * time without another write.
+ */
 export function entitlementOf(s: SubMirror, now: Date) {
   return {
-    pro: isPro(s, now),
+    pro: s.active || !!(s.grace_until && s.grace_until > now),
     expires_at: s.renews_at ?? s.promo?.expires_at ?? null,
     product_id: s.product_id,
     trial: s.trial,

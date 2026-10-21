@@ -4,6 +4,7 @@ returns plausible, schema-valid output derived from the request context."""
 from __future__ import annotations
 
 import hashlib
+import os
 from typing import Any
 
 from ..ai_schemas import CheckinOut, CoachOut, DeltaOut, MealOut, PlanOut
@@ -33,7 +34,9 @@ class MockProvider:
         if self.fail_next is not None:
             err, self.fail_next = self.fail_next, None
             raise err
-        usage = Usage(model="mock", input_tokens=1000 + 1500 * len(images), output_tokens=400)
+        # MOCK_USAGE_MODEL=claude-opus-5-5 makes load tests bill realistic costs.
+        usage = Usage(model=os.environ.get("MOCK_USAGE_MODEL", "mock"),
+                      input_tokens=1000 + 1500 * len(images), output_tokens=400)
         if schema is PlanOut:
             return schema(mesocycle=ctx["template"]), usage  # type: ignore[return-value]
         if schema is CheckinOut:

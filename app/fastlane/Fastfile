@@ -1,0 +1,104 @@
+# Forme AI release lanes.
+#
+#   beta lanes  → TestFlight + Play internal track (dogfood). Run these.
+#   release lanes → App Store review / Play production staged rollout.
+#                   P5: prepared only. Do NOT run until the 2-day dogfood is
+#                   approved (they refuse to run without FORME_RELEASE_APPROVED=yes).
+#
+# Required env: see README → "Release lanes". Config JSON per flavor lives in
+# app/config/<flavor>.json (gitignored; copy from config/example.json).
+
+default_platform(:ios)
+
+def flutter_build(platform, flavor)
+  defines = "--dart-define-from-file=config/#{flavor}.json"
+  number = ENV.fetch("BUILD_NUMBER") { Time.now.utc.strftime("%y%m%d%H%M") }
+  Dir.chdir("..") do
+    case platform
+    when :android
+      sh("flutter", "build", "appbundle", "--release", "--flavor", flavor,
+         "--build-number", number, "--obfuscate", "--split-debug-info=build/symbols", defines)
+    when :ios
+      sh("flutter", "build", "ipa", "--release", "--no-codesign",
+         "--build-number", number, "--obfuscate", "--split-debug-info=build/symbols", defines)
+    end
+  end
+end
+
+def bundle_id(flavor)
+  { "dev" => "ai.forme.app.dev", "staging" => "ai.forme.app.staging", "prod" => "ai.forme.app" }.fetch(flavor)
+end
+
+def require_release_approval!
+  UI.user_error!("Release lanes are locked until dogfood sign-off (set FORME_RELEASE_APPROVED=yes).") unless ENV["FORME_RELEASE_APPROVED"] == "yes"
+end
+
+platform :ios do
+  desc "Build and upload to TestFlight (internal testers). flavor: prod|staging"
+  lane :beta do |options|
+    flavor = options.fetch(:flavor, "prod")
+    setup_ci if ENV["CI"]
+    app_store_connect_api_key(
+      key_id: ENV.fetch("ASC_KEY_ID"),
+      issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+      key_content: ENV.fetch("ASC_KEY_CONTENT"),
+      is_key_content_base64: true,
+    )
+    match(type: "appstore", app_identifier: bundle_id(flavor), readonly: !!ENV["CI"])
+    flutter_build(:ios, flavor)
+    build_app(
+      workspace: "ios/Runner.xcworkspace",
+      scheme: "Runner",
+      export_method: "app-store",
+      xcargs: "FORME_BUNDLE_ID=#{bundle_id(flavor)}",
+      output_directory: "build/ios/fastlane",
+    )
+    upload_to_testflight(skip_waiting_for_build_processing: true, distribute_external: false)
+  end
+
+  desc "P5 (locked): submit the latest TestFlight build for App Store review"
+  lane :release do
+    require_release_approval!
+    deliver(
+      submit_for_review: true,
+      automatic_release: false,
+      phased_release: true,
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      precheck_include_in_app_purchases: false,
+      submission_information: { add_id_info_uses_idfa: false },
+    )
+  end
+end
+
+platform :android do
+  desc "Build and upload to the Play internal testing track. flavor: prod|staging"
+  lane :beta do |options|
+    flavor = options.fetch(:flavor, "prod")
+    flutter_build(:android, flavor)
+    upload_to_play_store(
+      package_name: bundle_id(flavor),
+      track: "internal",
+      aab: "build/app/outputs/bundle/#{flavor}Release/app-#{flavor}-release.aab",
+      release_status: "completed",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+
+  desc "P5 (locked): promote internal → production as a 10% staged rollout"
+  lane :release do
+    require_release_approval!
+    upload_to_play_store(
+      package_name: bundle_id("prod"),
+      track: "internal",
+      track_promote_to: "production",
+      rollout: "0.1",
+      skip_upload_aab: true,
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+    )
+  end
+end

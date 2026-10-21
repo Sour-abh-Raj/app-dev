@@ -15,6 +15,12 @@ from .caps import Bucket, Kind, Tier
 class ConsumeResult:
     allowed: bool
     blocked: Bucket | None = None
+    spend_blocked: bool = False
+
+
+class StoreBusy(Exception):
+    """Contention or a transient backend error; safe for the client to retry.
+    The request is denied (fail closed), never let through uncounted."""
 
 
 class PromoError(Exception):
@@ -54,7 +60,11 @@ def _as_dt(v: Any) -> datetime:
 class Store(Protocol):
     def tier(self, uid: str, now: datetime) -> Tier: ...
     def user_tz(self, uid: str) -> str | None: ...
-    def consume(self, uid: str, buckets: list[Bucket], month: str) -> ConsumeResult: ...
+    def consume(self, uid: str, buckets: list[Bucket], month: str,
+                reserve_usd: float = 0.0, spend_cap: float = float("inf")) -> ConsumeResult:
+        """Atomically: check every bucket and the spend ceiling, then count the
+        call and reserve its worst-case cost. All or nothing."""
+        ...
     def refund(self, uid: str, buckets: list[Bucket], month: str) -> None: ...
     def spend(self, uid: str, month: str) -> float: ...
     def add_spend(self, uid: str, month: str, usd: float) -> None: ...
@@ -106,11 +116,16 @@ class MemoryStore:
     def user_tz(self, uid: str) -> str | None:
         return self.users.get(uid, {}).get("timezone")
 
-    def consume(self, uid: str, buckets: list[Bucket], month: str) -> ConsumeResult:
+    def consume(self, uid: str, buckets: list[Bucket], month: str,
+                reserve_usd: float = 0.0, spend_cap: float = float("inf")) -> ConsumeResult:
         with self._lock:
             for b in buckets:
                 if self.counters.get((uid, b.key), 0) >= b.max:
                     return ConsumeResult(False, b)
+            cur = self.spend_.get((uid, month), 0.0)
+            if reserve_usd and cur + reserve_usd > spend_cap + 1e-9:
+                return ConsumeResult(False, spend_blocked=True)
+            self.spend_[(uid, month)] = cur + reserve_usd
             for b in buckets:
                 self.counters[(uid, b.key)] = self.counters.get((uid, b.key), 0) + 1
             if buckets and buckets[0].kind in USAGE_FIELD:
@@ -226,13 +241,37 @@ def _check_promo(p: dict | None, uid: str, code_hash: str, now: datetime,
 
 class FirestoreStore:
     """Production store. Counters live in users/{uid}/usage/{bucket}; every
-    multi-document change runs in a Firestore transaction."""
+    multi-document change runs in a Firestore transaction.
+
+    A burst from one user would make those transactions fight over the same
+    documents, so per-user work is first serialised in-process (lock stripes);
+    transactions still guarantee correctness across instances, and any
+    residual contention surfaces as StoreBusy (→ 503 + Retry-After)."""
+
+    _STRIPES = 256
+    _TX_ATTEMPTS = 10
 
     def __init__(self) -> None:
         from google.cloud import firestore  # imported lazily: optional in tests
 
         self._fs = firestore
         self.db = firestore.Client()
+        self._locks = [threading.Lock() for _ in range(self._STRIPES)]
+
+    def _lock(self, key: str) -> threading.Lock:
+        return self._locks[hash(key) % self._STRIPES]
+
+    def _run_tx(self, key: str, fn):
+        from google.api_core import exceptions as gexc
+
+        with self._lock(key):
+            try:
+                return fn(self.db.transaction(max_attempts=self._TX_ATTEMPTS))
+            except (ValueError, gexc.Aborted, gexc.DeadlineExceeded,
+                    gexc.ServiceUnavailable) as e:
+                if isinstance(e, ValueError) and "transaction" not in str(e).lower():
+                    raise
+                raise StoreBusy(str(e)) from e
 
     def _user(self, uid: str):
         return self.db.collection("users").document(uid)
@@ -245,50 +284,72 @@ class FirestoreStore:
         snap = self._user(uid).get(["timezone"])
         return (snap.to_dict() or {}).get("timezone") if snap.exists else None
 
-    def consume(self, uid: str, buckets: list[Bucket], month: str) -> ConsumeResult:
+    def consume(self, uid: str, buckets: list[Bucket], month: str,
+                reserve_usd: float = 0.0, spend_cap: float = float("inf")) -> ConsumeResult:
         fs = self._fs
-        refs = [self._user(uid).collection("usage").document(b.key.replace("|", "_"))
-                for b in buckets]
+        usage = self._user(uid).collection("usage")
+        refs = [usage.document(b.key.replace("|", "_")) for b in buckets]
+        spend_ref = usage.document(f"spend_{month}")
         user_ref = self._user(uid)
 
         @fs.transactional
         def run(tx) -> ConsumeResult:
-            snaps = [r.get(transaction=tx) for r in refs]
-            for b, s in zip(buckets, snaps):
-                n = (s.to_dict() or {}).get("n", 0) if s.exists else 0
+            snaps = list(tx.get_all(refs + [spend_ref])) if refs else [spend_ref.get(
+                transaction=tx)]
+            by_id = {s.id: s for s in snaps}
+            for b, r in zip(buckets, refs):
+                s = by_id.get(r.id)
+                n = (s.to_dict() or {}).get("n", 0) if s is not None and s.exists else 0
                 if n >= b.max:
                     return ConsumeResult(False, b)
-            user = user_ref.get(transaction=tx)
+            sp = by_id.get(spend_ref.id)
+            cur = float((sp.to_dict() or {}).get("usd", 0.0)) if sp is not None and sp.exists else 0.0
+            if reserve_usd and cur + reserve_usd > spend_cap + 1e-9:
+                return ConsumeResult(False, spend_blocked=True)
             for r in refs:
                 tx.set(r, {"n": fs.Increment(1)}, merge=True)
-            if buckets and buckets[0].kind in USAGE_FIELD:
-                usage = ((user.to_dict() or {}).get("ai_usage") or {}) if user.exists else {}
-                f = USAGE_FIELD[buckets[0].kind]
-                if usage.get("month") != month:
-                    usage = {"month": month}
-                usage[f] = usage.get(f, 0) + 1
-                tx.set(user_ref, {"ai_usage": usage}, merge=True)
+            if reserve_usd:
+                tx.set(spend_ref, {"usd": cur + reserve_usd}, merge=True)
             return ConsumeResult(True)
 
-        return run(self.db.transaction())
+        res = self._run_tx(f"usage:{uid}", run)
+        if res.allowed and buckets and buckets[0].kind in USAGE_FIELD:
+            self._mirror_usage(user_ref, buckets[0].kind, month, +1)
+        return res
+
+    def _mirror_usage(self, user_ref, kind: Kind, month: str, delta: int) -> None:
+        """Client-visible users/{uid}.ai_usage (display only; the usage/ docs
+        are the enforced counters). Best effort, outside the hot transaction."""
+        fs = self._fs
+        f = USAGE_FIELD[kind]
+        try:
+            snap = user_ref.get(["ai_usage"])
+            usage = ((snap.to_dict() or {}).get("ai_usage") or {}) if snap.exists else {}
+            if usage.get("month") != month:
+                user_ref.set({"ai_usage": {"month": month, f: max(0, delta)}}, merge=True)
+            else:
+                user_ref.set({"ai_usage": {f: fs.Increment(delta)}}, merge=True)
+        except Exception:  # display mirror only; never fail the request on it
+            pass
 
     def refund(self, uid: str, buckets: list[Bucket], month: str) -> None:
-        batch = self.db.batch()
-        for b in buckets:
-            ref = self._user(uid).collection("usage").document(b.key.replace("|", "_"))
-            batch.set(ref, {"n": self._fs.Increment(-1)}, merge=True)
+        with self._lock(f"usage:{uid}"):
+            batch = self.db.batch()
+            for b in buckets:
+                ref = self._user(uid).collection("usage").document(b.key.replace("|", "_"))
+                batch.set(ref, {"n": self._fs.Increment(-1)}, merge=True)
+            batch.commit()
         if buckets and buckets[0].kind in USAGE_FIELD:
-            f = USAGE_FIELD[buckets[0].kind]
-            batch.set(self._user(uid), {"ai_usage": {f: self._fs.Increment(-1)}}, merge=True)
-        batch.commit()
+            self._mirror_usage(self._user(uid), buckets[0].kind, month, -1)
 
     def spend(self, uid: str, month: str) -> float:
         snap = self._user(uid).collection("usage").document(f"spend_{month}").get()
         return float((snap.to_dict() or {}).get("usd", 0.0)) if snap.exists else 0.0
 
     def add_spend(self, uid: str, month: str, usd: float) -> None:
-        self._user(uid).collection("usage").document(f"spend_{month}").set(
-            {"usd": self._fs.Increment(usd)}, merge=True)
+        with self._lock(f"usage:{uid}"):
+            self._user(uid).collection("usage").document(f"spend_{month}").set(
+                {"usd": self._fs.Increment(usd)}, merge=True)
 
     def _idem_ref(self, uid: str, route: str, key: str):
         return self._user(uid).collection("ai_jobs").document(f"{route}_{key}")
@@ -336,7 +397,7 @@ class FirestoreStore:
             tx.set(ref, {"n": n + 1, "expire_at": now + timedelta(seconds=2 * window_s)})
             return True
 
-        return run(self.db.transaction())
+        return self._run_tx(f"rate:{key}", run)
 
     def promo_redeem(self, uid: str, code_hash: str, now: datetime) -> PromoGrant:
         fs = self._fs
@@ -355,12 +416,14 @@ class FirestoreStore:
             tx.set(sub_ref, {"promo": {"tier": grant.tier, "expires_at": grant.expires_at,
                                        "code_hash": code_hash}}, merge=True)
             # Client-visible mirror (merge keeps the RevenueCat-owned fields).
-            tx.set(self._user(uid), {"entitlement": {"pro": True, "promo": True,
+            # No sticky `pro: true` here: clients derive promo access from the
+            # expiry, so it lapses on time without another write.
+            tx.set(self._user(uid), {"entitlement": {"promo": True,
                                                      "promo_expires_at": grant.expires_at}},
                    merge=True)
             return grant
 
-        return run(self.db.transaction())
+        return self._run_tx(f"promo:{code_hash}", run)
 
     def promo_audit(self, uid: str, code_hash: str, result: str, now: datetime) -> None:
         self.db.collection("promo_redemptions").add(
@@ -392,7 +455,7 @@ class FirestoreStore:
             tx.set(user_ref, {"plan_version": version}, merge=True)
             return version
 
-        return run(self.db.transaction())
+        return self._run_tx(f"plan:{uid}", run)
 
     def profile(self, uid: str) -> dict | None:
         snap = self._user(uid).get()
@@ -415,14 +478,20 @@ class FirestoreStore:
 
 
 _store: Store | None = None
+_store_lock = threading.Lock()
 
 
 def get_store() -> Store:
+    """Process-wide singleton. Guarded: concurrent first requests must share
+    one store (and so one set of per-user lock stripes)."""
     global _store
     if _store is None:
-        from .config import get_settings
+        with _store_lock:
+            if _store is None:
+                from .config import get_settings
 
-        _store = FirestoreStore() if get_settings().store == "firestore" else MemoryStore()
+                _store = (FirestoreStore() if get_settings().store == "firestore"
+                          else MemoryStore())
     return _store
 
 

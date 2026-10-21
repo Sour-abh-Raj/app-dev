@@ -62,6 +62,15 @@ def test_idempotency_records(fs, uid):
     assert fs.idem_begin(uid, "meal", "key-00000002")
 
 
+def test_consume_reserves_spend_atomically(fs, uid):
+    b = buckets_for(Tier.PRO, Kind.CHAT, NOW)
+    fs.add_spend(uid, "2026-10", 1.45)
+    assert fs.consume(uid, b, "2026-10", reserve_usd=0.03, spend_cap=1.50).allowed
+    res = fs.consume(uid, b, "2026-10", reserve_usd=0.03, spend_cap=1.50)
+    assert not res.allowed and res.spend_blocked
+    assert fs.spend(uid, "2026-10") == pytest.approx(1.48)
+
+
 def test_spend_ledger(fs, uid):
     fs.add_spend(uid, "2026-10", 0.25)
     fs.add_spend(uid, "2026-10", 0.5)
@@ -82,7 +91,8 @@ def test_promo_redeem_transaction(fs, uid):
     assert grant.tier == "pro"
     assert fs.tier(uid, NOW) is Tier.PRO
     user = fs.db.collection("users").document(uid).get().to_dict()
-    assert user["entitlement"]["pro"] is True
+    assert user["entitlement"]["promo"] is True
+    assert "pro" not in user["entitlement"]  # derived from promo_expires_at client-side
     with pytest.raises(PromoError) as e:
         fs.promo_redeem(uid, h, NOW)
     assert e.value.code == "exhausted"

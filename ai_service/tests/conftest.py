@@ -48,6 +48,9 @@ class Env:
         set_store(self.store)
         self.provider = MockProvider()
         self.loader = MemoryLoader()
+        from app import main as main_mod
+
+        main_mod._burst.rates.clear()  # per-instance burst limiter is module state
         app = create_app()
         app.state.provider = self.provider
         app.state.loader = self.loader

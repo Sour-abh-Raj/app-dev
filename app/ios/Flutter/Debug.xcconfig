@@ -1,0 +1,8 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+#include "Generated.xcconfig"
+// Flavor bundle ids: dev builds by default; Fastlane overrides per lane via
+// xcargs (FORME_BUNDLE_ID=ai.forme.app / ai.forme.app.staging).
+FORME_BUNDLE_ID = ai.forme.app.dev
+// Google Sign-In (set per project; see README → Google Sign-In).
+GOOGLE_IOS_CLIENT_ID = REPLACE_ME.apps.googleusercontent.com
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.REPLACE_ME

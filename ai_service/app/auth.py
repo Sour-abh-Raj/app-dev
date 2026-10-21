@@ -19,7 +19,10 @@ def _firebase_app():
     try:
         return firebase_admin.get_app()
     except ValueError:
-        return firebase_admin.initialize_app()
+        import os
+
+        project = os.environ.get("GOOGLE_CLOUD_PROJECT")
+        return firebase_admin.initialize_app(options={"projectId": project} if project else None)
 
 
 async def current_uid(request: Request, authorization: str | None = Header(None)) -> str:

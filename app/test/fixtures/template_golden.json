@@ -1,0 +1,3979 @@
+[
+ {
+  "input": {
+   "goal": "lose_fat",
+   "level": "beginner",
+   "equipment": [
+    "dumbbells"
+   ],
+   "days_per_week": 3,
+   "mins": 30,
+   "injuries": [],
+   "sex": "male",
+   "height_cm": 178,
+   "weight_kg": 82
+  },
+  "plan": {
+   "name": "Full-body A \u00b7 3x/week",
+   "weeks": [
+    {
+     "week_index": 1,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Full-body B",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "goblet_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_triceps_ext",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 2,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Full-body B",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "goblet_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_triceps_ext",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 3,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Full-body B",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "goblet_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_triceps_ext",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 4,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Full-body B",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "goblet_squat",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_triceps_ext",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Full-body A",
+       "est_mins": 30,
+       "exercises": [
+        {
+         "ex_id": "goblet_squat",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_floor_press",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_shoulder_press",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bird_dog",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kcal_target": 2040,
+   "protein_g": 164,
+   "notes": "Starter template. Week 4 is a deload."
+  }
+ },
+ {
+  "input": {
+   "goal": "build_muscle",
+   "level": "intermediate",
+   "equipment": [
+    "barbell",
+    "bench",
+    "dumbbells",
+    "cable",
+    "machine"
+   ],
+   "days_per_week": 4,
+   "mins": 60,
+   "injuries": [
+    "shoulder"
+   ],
+   "sex": "female",
+   "height_cm": 165,
+   "weight_kg": 60
+  },
+  "plan": {
+   "name": "Upper \u00b7 4x/week",
+   "weeks": [
+    {
+     "week_index": 1,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 2,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 3,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 4,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Upper",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "db_floor_press",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "cable_curl",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Lower",
+       "est_mins": 60,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 2,
+         "reps": "8-12",
+         "load_kg": null,
+         "rest_s": 90
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kcal_target": 2180,
+   "protein_g": 120,
+   "notes": "Starter template. Week 4 is a deload."
+  }
+ },
+ {
+  "input": {
+   "goal": "strength",
+   "level": "advanced",
+   "equipment": [
+    "barbell",
+    "bench",
+    "dumbbells",
+    "pullup_bar"
+   ],
+   "days_per_week": 5,
+   "mins": 75,
+   "injuries": []
+  },
+  "plan": {
+   "name": "Push \u00b7 5x/week",
+   "weeks": [
+    {
+     "week_index": 1,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bench_dip",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "pullup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Upper",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pullup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Lower",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 2,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bench_dip",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "pullup",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Upper",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pullup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Lower",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 3,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bench_dip",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "pullup",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Upper",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pullup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Lower",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 5,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 4,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 4,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_fly",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "bench_dip",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "pullup",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Upper",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "bb_bench",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "pullup",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "landmine_press",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "inverted_row",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "reverse_fly",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Lower",
+       "est_mins": 75,
+       "exercises": [
+        {
+         "ex_id": "back_squat",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "deadlift",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "front_squat",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        },
+        {
+         "ex_id": "hollow_hold",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "rdl_bb",
+         "sets": 3,
+         "reps": "5",
+         "load_kg": null,
+         "rest_s": 150
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kcal_target": null,
+   "protein_g": null,
+   "notes": "Starter template. Week 4 is a deload."
+  }
+ },
+ {
+  "input": {
+   "goal": "recomp",
+   "level": "beginner",
+   "equipment": [
+    "bodyweight"
+   ],
+   "days_per_week": 2,
+   "mins": 20,
+   "injuries": [
+    "knee",
+    "wrist"
+   ]
+  },
+  "plan": {
+   "name": "Full-body A \u00b7 2x/week",
+   "weeks": [
+    {
+     "week_index": 1,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Full-body B",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 2,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 4,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Full-body B",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 4,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 3,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 4,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Full-body B",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 4,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 3,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 4,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Full-body A",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 2,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 2,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Full-body B",
+       "est_mins": 20,
+       "exercises": [
+        {
+         "ex_id": "bird_dog",
+         "sets": 2,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        },
+        {
+         "ex_id": "dead_bug",
+         "sets": 2,
+         "reps": "8-10",
+         "load_kg": null,
+         "rest_s": 75
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kcal_target": null,
+   "protein_g": null,
+   "notes": "Starter template. Week 4 is a deload."
+  }
+ },
+ {
+  "input": {
+   "goal": "lose_fat",
+   "level": "intermediate",
+   "equipment": [
+    "dumbbells",
+    "bench",
+    "bands"
+   ],
+   "days_per_week": 6,
+   "mins": 45,
+   "injuries": [
+    "lower_back"
+   ],
+   "sex": "other",
+   "height_cm": 180,
+   "weight_kg": 95
+  },
+  "plan": {
+   "name": "Push \u00b7 6x/week",
+   "weeks": [
+    {
+     "week_index": 1,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 2,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 3,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 4,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 3,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 3,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week_index": 4,
+     "sessions": [
+      {
+       "day_index": 0,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 1,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 2,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 3,
+       "name": "Push",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "db_fly",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "pike_pushup",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "incline_db_press",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "close_grip_pushup",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_lateral_raise",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 4,
+       "name": "Pull",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "chest_supported_row",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_row",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "band_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "db_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hammer_curl",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      },
+      {
+       "day_index": 5,
+       "name": "Legs",
+       "est_mins": 45,
+       "exercises": [
+        {
+         "ex_id": "bulgarian_split_squat",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "hip_thrust",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "reverse_lunge",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "seated_calf_raise",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "side_plank",
+         "sets": 2,
+         "reps": "30s",
+         "load_kg": null,
+         "rest_s": 60
+        },
+        {
+         "ex_id": "box_squat",
+         "sets": 2,
+         "reps": "10-15",
+         "load_kg": null,
+         "rest_s": 60
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "kcal_target": 2440,
+   "protein_g": 190,
+   "notes": "Starter template. Week 4 is a deload."
+  }
+ }
+]

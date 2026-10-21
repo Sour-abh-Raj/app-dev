@@ -1,0 +1,5 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "Generated.xcconfig"
+FORME_BUNDLE_ID = ai.forme.app
+GOOGLE_IOS_CLIENT_ID = REPLACE_ME.apps.googleusercontent.com
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.REPLACE_ME

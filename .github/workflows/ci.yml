@@ -1,0 +1,109 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  FLUTTER_VERSION: "3.47.7"
+
+jobs:
+  flutter:
+    name: Flutter analyze · test · coverage gate · Android build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: ../tool/check_seed_sync.sh
+      - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed lib test
+      - run: flutter analyze
+      - run: flutter test --coverage
+      - run: python3 ../tool/coverage_gate.py coverage/lcov.info 80
+      # Debug APK per flavor proves Gradle, manifests and plugins compile.
+      # DEMO_MODE builds need no Firebase/RevenueCat config.
+      - run: flutter build apk --debug --flavor dev --dart-define=FLAVOR=dev --dart-define=DEMO_MODE=true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: forme-dev-debug-apk
+          path: app/build/app/outputs/flutter-apk/app-dev-debug.apk
+
+  ios:
+    name: iOS build (no codesign)
+    runs-on: macos-latest
+    if: github.event_name == 'push'
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter build ios --debug --no-codesign --dart-define=FLAVOR=dev --dart-define=DEMO_MODE=true
+
+  ai_service:
+    name: AI service tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ai_service
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13", cache: pip, cache-dependency-path: ai_service/requirements-dev.txt }
+      - run: pip install -r requirements-dev.txt
+      - run: pytest -q --cov=app --cov-report=term --cov-fail-under=80
+      - run: python -m evals.run_evals   # mock provider: prompt/eval wiring only
+      - run: docker build -f Dockerfile -t forme-ai:ci ..
+
+  functions:
+    name: Functions build · unit tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: functions
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22", cache: npm, cache-dependency-path: functions/package-lock.json }
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+
+  emulators:
+    name: Rules · webhook · Firestore store · cap load test (emulators)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "21" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.13" }
+      - run: npm i -g firebase-tools@14
+      - run: npm ci --prefix functions
+      - run: pip install -r ai_service/requirements-dev.txt
+      - run: >
+          firebase emulators:exec --only auth,firestore,storage --project forme-ci
+          "npm --prefix functions run test:emulator &&
+           python tool/load_test_caps.py &&
+           cd ai_service && GOOGLE_CLOUD_PROJECT=forme-ci python -m pytest -q -m emulator"

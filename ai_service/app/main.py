@@ -27,7 +27,7 @@ from .models import (AiReport, CheckinAnalyzeRequest, CheckinAnalyzeResponse, Co
                      PromoRedeemResponse, PromptPinRequest, PreviewRenderRequest,
                      PreviewRenderResponse)
 from .providers.base import AiError, Image, Provider
-from .store import PromoError, Store, get_store
+from .store import MemoryStore, PromoError, Store, StoreBusy, get_store
 
 log = logging.getLogger("forme.api")
 logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -66,6 +66,12 @@ def create_app() -> FastAPI:
                             content={"error": "cap_reached", "cap": exc.cap, "tier": exc.tier.value,
                                      "retry_after": exc.retry_after,
                                      "paywall": f"{s.paywall_link}?placement=cap_{exc.cap}"})
+
+    @app.exception_handler(StoreBusy)
+    async def busy_handler(request: Request, exc: StoreBusy):
+        log.warning(json.dumps({"rid": getattr(request.state, "rid", None), "store_busy": str(exc)}))
+        return JSONResponse(status_code=503, headers={"Retry-After": "2"},
+                            content={"error": "busy", "retry_after": 2})
 
     @app.exception_handler(InProgress)
     async def inprogress_handler(request: Request, exc: InProgress):
@@ -124,8 +130,13 @@ def loader_dep(request: Request) -> images.ImageLoader:
     return loader
 
 
+# Per-instance burst limiter (soft; the caps in the store are the hard limit).
+# Kept in memory so a burst never adds a hot-document transaction.
+_burst = MemoryStore()
+
+
 def burst_guard(store: Store, uid: str) -> None:
-    if not store.rate_hit(f"burst_{uid}", 60, BURST_PER_MIN, datetime.now(timezone.utc)):
+    if not _burst.rate_hit(f"burst_{uid}", 60, BURST_PER_MIN, datetime.now(timezone.utc)):
         raise HTTPException(429, detail={"error": "rate_limited", "retry_after": 60},
                             headers={"Retry-After": "60"})
 

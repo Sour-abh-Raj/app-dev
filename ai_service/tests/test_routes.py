@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
 
+import pytest
+
 from app.providers.base import AiError
 from app.store import is_pro
 
@@ -244,10 +246,13 @@ def test_spend_ceiling_blocks_before_calling(env):
     r = env.post("/v1/meal/analyze", {"text": "rice"})
     assert r.status_code == 429 and r.json()["cap"] == "spend"
     assert env.provider.calls == []
-    assert env.store.users["u1"]["ai_usage"]["meal_n"] == 0  # refunded
+    assert env.store.users.get("u1", {}).get("ai_usage", {}).get("meal_n", 0) == 0  # not counted
 
 
 def test_burst_limit(env):
+    from app import main
+
+    main._burst.rates.clear()
     env.make_pro()
     codes = [env.post("/v1/meal/analyze", {"text": f"m{i}"}).status_code for i in range(32)]
     assert 429 in codes
@@ -269,3 +274,50 @@ def test_expired_user_keeps_free_allowances(env):
     assert env.post("/v1/meal/analyze", {"text": "toast"}).status_code == 200
     r = env.post("/v1/checkin/analyze", _checkin_body(env))
     assert r.status_code == 429
+
+
+# ---------- spend reservation (O6 under concurrency) ----------
+
+def test_reservation_is_atomic_under_threads():
+    import threading
+
+    from app.store import MemoryStore
+
+    s = MemoryStore()
+    s.add_spend("u", "2026-10", 1.40)
+    wins = []
+    barrier = threading.Barrier(50)
+
+    def go():
+        barrier.wait()
+        wins.append(s.consume("u", [], "2026-10", reserve_usd=0.03, spend_cap=1.50).allowed)
+
+    threads = [threading.Thread(target=go) for _ in range(50)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+    assert sum(wins) == 3
+    assert s.spend("u", "2026-10") <= 1.50 + 1e-9
+
+
+def test_spend_reconciles_to_actual_cost(env, monkeypatch):
+    from app.caps import cost_usd
+
+    monkeypatch.setenv("MOCK_USAGE_MODEL", "claude-opus-5-5")
+    env.make_pro()
+    month = datetime.now(timezone.utc).strftime("%Y-%m")
+    assert env.post("/v1/meal/analyze", {"text": "rice"}).status_code == 200
+    assert env.store.spend("u1", month) == pytest.approx(cost_usd("claude-opus-5-5", 1000, 400))
+    # Failure releases the reservation; cache hits cost nothing.
+    env.provider.fail_next = AiError("down")
+    env.post("/v1/meal/analyze", {"text": "pasta"})
+    env.post("/v1/meal/analyze", {"text": "rice"})
+    assert env.store.spend("u1", month) == pytest.approx(cost_usd("claude-opus-5-5", 1000, 400))
+
+
+def test_render_stub_costs_nothing(env):
+    env.make_pro()
+    month = datetime.now(timezone.utc).strftime("%Y-%m")
+    env.post("/v1/preview/render", {"photo": "progress-photos/u1/c/front.jpg", "goal": "x"})
+    assert env.store.spend("u1", month) == 0

@@ -1,0 +1,18 @@
+{
+  "FLAVOR": "dev",
+  "AI_BASE_URL": "https://forme-ai-dev-XXXXXXXX-uc.a.run.app",
+  "FIREBASE_API_KEY": "",
+  "FIREBASE_PROJECT_ID": "forme-dev",
+  "FIREBASE_SENDER_ID": "",
+  "FIREBASE_STORAGE_BUCKET": "forme-dev.firebasestorage.app",
+  "FIREBASE_APP_ID_IOS": "",
+  "FIREBASE_APP_ID_ANDROID": "",
+  "IOS_BUNDLE_ID": "ai.forme.app.dev",
+  "RC_IOS_KEY": "appl_...",
+  "RC_ANDROID_KEY": "goog_...",
+  "GOOGLE_IOS_CLIENT_ID": "",
+  "GOOGLE_SERVER_CLIENT_ID": "",
+  "USE_EMULATORS": false,
+  "EMULATOR_HOST": "10.0.2.2",
+  "DEMO_MODE": false
+}
